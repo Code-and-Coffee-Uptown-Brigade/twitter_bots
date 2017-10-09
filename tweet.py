@@ -1,5 +1,5 @@
 import tweepy
-from credentials2 import *
+from credentials import *
 import json
 
 def get_tweets():
