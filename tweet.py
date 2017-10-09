@@ -1,6 +1,7 @@
 import tweepy
 from credentials import *
 import json
+import csv
 
 # OAuth to Twitter
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
@@ -15,4 +16,14 @@ for result in api.search('@codeuptown', 'en'):
     buffer.append(result.id)
 
 print(buffer)
+
+with open('ids.csv', 'wb') as myfile:
+    writer = csv.writer(myfile)
+    writer.writerows(buffer)
+
+
+    # for item in buffer:
+    #     wr.writerow(int(buffer))
+
+
     #api.create_favorite(result.id)
