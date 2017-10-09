@@ -2,7 +2,7 @@ import tweepy
 from credentials import *
 import json
 
-def get_tweets():
+def account_get_tweets():
     #Get the auth stuff in order
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
@@ -12,8 +12,26 @@ def get_tweets():
     tweets = api.user_timeline(screen_name = 'codeuptown', include_rts= True, parser=tweepy.parsers.JSONParser())
     return tweets
 
+def mentions():
+    #Get the auth stuff in order
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
+    api = tweepy.API(auth)
+
+    retweets = api.search('@codeuptown', 'en')
+    return retweets
+
+def favorite():
+    #Get the auth stuff in order
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
+    api = tweepy.API(auth)
+
+    favorite = api.create_favorite('917402990646046721')
+    return favorite
+
 #Does this work? Let's find out:
-test = get_tweets()
+test = favorite()
 print(test)
 
 # def text_finder():
