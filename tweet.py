@@ -33,17 +33,3 @@ def favorite():
 #Does this work? Let's find out:
 test = favorite()
 print(test)
-
-# def text_finder():
-#     text = str(get_tweets())
-#     data = json.loads(text)
-#     return data
-#
-# test = text_finder()
-# print(test)
-
-    # trimmed_tweets = tweet_cache.cache_and_trim('tweet_ids.csv', tweets)
-#
-#     return trimmed_tweets
-#
-# print(trimmed_tweets)
