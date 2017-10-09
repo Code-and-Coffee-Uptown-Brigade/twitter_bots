@@ -12,12 +12,12 @@ api = tweepy.API(auth)
 buffer = []
 
 # Traverse the JSON returned by search query & favorite tweets by ID
-for result in api.search('@codeuptown', 'en'):
-    buffer.append(result.id)
+for result in api.search('@codeuptown', 'en', 20):
+    buffer.append([result.id])
 
 print(buffer)
 
-with open('ids.csv', 'wb') as myfile:
+with open('ids.csv', 'w') as myfile:
     writer = csv.writer(myfile)
     writer.writerows(buffer)
 
