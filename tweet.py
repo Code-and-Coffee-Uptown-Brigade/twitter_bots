@@ -36,11 +36,3 @@ if new_buffer:
         ids.db.write("%s\n" % new_id)
     # close after writing
     ids_db.close()
-
-
-
-    # for item in buffer:
-    #     wr.writerow(int(buffer))
-
-
-    #api.create_favorite(result.id)
