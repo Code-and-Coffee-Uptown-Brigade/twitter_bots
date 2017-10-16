@@ -25,7 +25,7 @@ for result in api.search('@codeuptown', 'en', 20):
 # Find IDs if file exists and not empty.
 if os.path.exists(ids) and os.stat(ids).st_size > 0:
     find_ids()
-else
+else:
     new_buffer = buffer
 
 if new_buffer:
