@@ -14,7 +14,7 @@ buffer = []
 new_buffer = []
 
 def find_ids():
-    with open("ids.csv") as ids_db:
+    with open('ids.csv') as ids_db:
         content = [line.rstrip() for line in ids_db] # Strip whitespace from end of Tweet ID
     for new_id in content:
         new_buffer.append(new_id)
@@ -23,13 +23,13 @@ for result in api.search('@codeuptown', 'en', 20):
     buffer.append(result.id)
 
 # Find IDs if file exists and not empty.
-if os.path.exists(ids) and os.stat(ids).st_size > 0:
+if os.path.exists('ids.csv') and os.stat('ids.csv').st_size > 0:
     find_ids()
 else:
     new_buffer = buffer
 
 if new_buffer:
-    ids_db = open(ids, 'w')
+    ids_db = open('ids.csv', 'w')
     for new_id in new_buffer:
         api.create_favorite(new_id)
         # Append new_id to IDs file.
